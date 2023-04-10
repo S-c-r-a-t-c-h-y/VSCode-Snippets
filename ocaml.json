@@ -1,125 +1,246 @@
 {
   "for loop": {
-    "prefix": ["for"],
-    "body": ["for ${1:i} = ${2:0} ${3|to,downto|} ${4:count} do", "\t${5:$BLOCK_COMMENT_START code $BLOCK_COMMENT_END}", "done", "$0"],
+    "prefix": [
+      "for"
+    ],
+    "body": [
+      "for ${1:i} = ${2:0} ${3|to,downto|} ${4:count} do",
+      "\t$5",
+      "done",
+      "$0"
+    ],
     "description": "Code snippet for for loop"
   },
-
   "while loop": {
-    "prefix": ["while"],
-    "body": ["while ${1:$BLOCK_COMMENT_START condition $BLOCK_COMMENT_END} do", "\t${2:$BLOCK_COMMENT_START code $BLOCK_COMMENT_END}", "done", "$0"],
+    "prefix": [
+      "while"
+    ],
+    "body": [
+      "while $1 do",
+      "\t$2",
+      "done",
+      "$0"
+    ],
     "description": "Code snippet for while loop"
   },
-
   "if": {
-	"prefix": ["if"],
-	"body": ["if ${1:$BLOCK_COMMENT_START condition $BLOCK_COMMENT_END} then ${0:$BLOCK_COMMENT_START code $BLOCK_COMMENT_END}"],
+    "prefix": [
+      "if"
+    ],
+    "body": [
+      "if $1 then $0"
+    ],
     "description": "Code snippet for if then"
   },
-
   "if else": {
-	"prefix": ["ifel"],
-	"body": ["if ${1:$BLOCK_COMMENT_START condition $BLOCK_COMMENT_END} then ${2:$BLOCK_COMMENT_START code $BLOCK_COMMENT_END}", "else ${0:$BLOCK_COMMENT_START code $BLOCK_COMMENT_END}"],
+    "prefix": [
+      "ifel"
+    ],
+    "body": [
+      "if $1 then $2",
+      "else $0"
+    ],
     "description": "Code snippet for if then else"
   },
-
   "if else if": {
-	"prefix": ["ifelif"],
-	"body": ["if ${1:$BLOCK_COMMENT_START condition $BLOCK_COMMENT_END} then ${2:$BLOCK_COMMENT_START code $BLOCK_COMMENT_END}", "else if ${3:$BLOCK_COMMENT_START condition $BLOCK_COMMENT_END} then ${4:$BLOCK_COMMENT_START code $BLOCK_COMMENT_END}", "else ${0:$BLOCK_COMMENT_START code $BLOCK_COMMENT_END}"],
+    "prefix": [
+      "ifelif"
+    ],
+    "body": [
+      "if $1 then $2",
+      "else if $3 then $4",
+      "else $0"
+    ],
     "description": "Code snippet for if then else if then else"
   },
-
   "match": {
-    "prefix": ["match"],
-    "body": ["match ${1:expression} with", "| ${2:_} -> $3", "$0"],
+    "prefix": [
+      "match"
+    ],
+    "body": [
+      "match ${1:expression} with",
+      "| ${2:_} -> $0"
+    ],
     "description": "Code snippet for match with"
   },
-  
   "match case": {
-    "prefix": ["case", "pat"],
-    "body": ["| ${1:_} -> $2", "$0"],
+    "prefix": [
+      "case",
+      "pat"
+    ],
+    "body": [
+      "| ${1:_} -> $0"
+    ],
     "description": "Code snippet for match cases"
   },
-
   "printf": {
-    "prefix": ["prt", "printf"],
-    "body": ["Printf.printf \"${1:string}\" $0"],
+    "prefix": [
+      "printf"
+    ],
+    "body": [
+      "Printf.printf \"$1\" $0"
+    ],
     "description": "Code snippet for Printf.printf"
   },
-
   "fprintf": {
-    "prefix": ["fprt", "fprintf"],
-    "body": ["Printf.fprintf ${1:stdout} \"${2:string}\" $0"],
+    "prefix": [
+      "fprintf"
+    ],
+    "body": [
+      "Printf.fprintf ${1:stdout} \"$2\" $0"
+    ],
     "description": "Code snippet for Printf.fprintf"
   },
-
   "perf timing": {
-    "prefix": ["time", "perf"],
-    "body": ["let start_time = Sys.time () in ${1:$BLOCK_COMMENT_START code $BLOCK_COMMENT_END}; Printf.printf \"${2:string} %fs\\n\" (Sys.time () -. start_time)$0"],
+    "prefix": [
+      "time",
+      "perf"
+    ],
+    "body": [
+      "let start_time = Sys.time () in ${1:$BLOCK_COMMENT_START code $BLOCK_COMMENT_END}; Printf.printf \"$1 %fs\\n\" (Sys.time () -. start_time)$0"
+    ],
     "description": "Code snippet for perf timing"
   },
-
   "List.fold_left": {
-    "prefix": ["lfold", "lfoldleft"],
-    "body": ["List.fold_left (fun ${1:acc} ${2:x} -> ${3:$BLOCK_COMMENT_START code $BLOCK_COMMENT_END}) ${4:init} ${5:list} $0"],
+    "prefix": [
+      "lfold",
+      "lfoldleft"
+    ],
+    "body": [
+      "List.fold_left (fun ${1:acc} ${2:x} -> $3) ${4:init} ${5:list} $0"
+    ],
     "description": "Code snippet for List.fold_left"
   },
-  
   "List.fold_right": {
-    "prefix": ["lfoldright"],
-    "body": ["List.fold_right (fun ${1:x} ${2:acc} -> ${3:$BLOCK_COMMENT_START code $BLOCK_COMMENT_END}) ${4:list} ${5:init} $0"],
+    "prefix": [
+      "lfoldright"
+    ],
+    "body": [
+      "List.fold_right (fun ${1:x} ${2:acc} -> $3) ${4:list} ${5:init} $0"
+    ],
     "description": "Code snippet for List.fold_right"
   },
-  
   "Array.fold_left": {
-    "prefix": ["afold", "afoldleft"],
-    "body": ["Array.fold_left (fun ${1:acc} ${2:x} -> ${3:$BLOCK_COMMENT_START code $BLOCK_COMMENT_END}) ${4:init} ${5:array} $0"],
+    "prefix": [
+      "afold",
+      "afoldleft"
+    ],
+    "body": [
+      "Array.fold_left (fun ${1:acc} ${2:x} -> $3) ${4:init} ${5:array} $0"
+    ],
     "description": "Code snippet for Array.fold_left"
   },
-  
   "Array.fold_right": {
-	  "prefix": ["afoldright"],
-	  "body": ["Array.fold_right (fun ${1:x} ${2:acc} -> ${3:$BLOCK_COMMENT_START code $BLOCK_COMMENT_END}) ${4:array} ${5:init} $0"],
-	  "description": "Code snippet for Array.fold_right"
+    "prefix": [
+      "afoldright"
+    ],
+    "body": [
+      "Array.fold_right (fun ${1:x} ${2:acc} -> $3) ${4:array} ${5:init} $0"
+    ],
+    "description": "Code snippet for Array.fold_right"
   },
-	
   "Hashtbl.fold": {
-    "prefix": ["hfold"],
-    "body": ["Hashtbl.fold (fun ${1:key} ${2:value} ${3:acc} -> ${4:$BLOCK_COMMENT_START code $BLOCK_COMMENT_END}) ${5:hashtable} ${6:init} $0"],
+    "prefix": [
+      "hfold"
+    ],
+    "body": [
+      "Hashtbl.fold (fun ${1:key} ${2:value} ${3:acc} -> $4) ${5:hashtable} ${6:init} $0"
+    ],
     "description": "Code snippet for Array.fold_left"
   },
-
   "try with": {
-	"prefix": ["try", "trywith"],
-	"body": ["try", "\t${1:$BLOCK_COMMENT_START code $BLOCK_COMMENT_END}", "with ${2:Exception} -> ${3:$BLOCK_COMMENT_START code $BLOCK_COMMENT_END}", "$0"],
+    "prefix": [
+      "try",
+      "trywith"
+    ],
+    "body": [
+      "try",
+      "\t$1",
+      "with ${2:Exception} -> $3",
+      "$0"
+    ],
     "description": "Code snippet for try with"
   },
-
   "match list": {
-    "prefix": ["matchl", "lmatch"],
-    "body": ["match ${1:list} with", "| [] -> $2", "| e :: q -> $3", "$0"],
+    "prefix": [
+      "matchl",
+      "lmatch"
+    ],
+    "body": [
+      "match ${1:list} with",
+      "| [] -> $2",
+      "| ${3:e} :: ${4:q} -> $0"
+    ],
     "description": "Code snippet for match with lists"
   },
-  
   "assign array": {
-    "prefix": ["assarr"],
-    "body": ["${1:array}.(${2:i}) <- ${3:value} $0"],
+    "prefix": [
+      "assarr"
+    ],
+    "body": [
+      "${1:array}.(${2:i}) <- ${3:value} $0"
+    ],
     "description": "Code snippet for assigning value to array"
   },
-  
   "increment array": {
-    "prefix": ["incrarr"],
-    "body": ["${1:array}.(${2:i}) <- ${1:array}.(${2:i}) + ${3:value} $0"],
-    "description": "Code snippet for incremting value in an array"
+    "prefix": [
+      "incrarr"
+    ],
+    "body": [
+      "${1:array}.(${2:i}) <- ${1:array}.(${2:i}) + ${3:value} $0"
+    ],
+    "description": "Code snippet for incrementing value in an array"
   },
-
   "random array": {
-    "body": ["let ${1:random_array} ${2:n} ?(${3:minimum} = 0) ${4:maximum} =", "\tlet array = Array.make ${2:n} 0 in", "\tfor i = 0 to ${2:n} - 1 do", "\t\tarray.(i) <- ${3:minimum} + Random.int (${4:maximum} - ${3:minimum})", "\tdone;", "\tarray", "$0"],
+    "body": [
+      "let ${1:random_array} ${2:n} ?(${3:minimum} = 0) ${4:maximum} =",
+      "\tlet array = Array.make ${2:n} 0 in",
+      "\tfor i = 0 to ${2:n} - 1 do",
+      "\t\tarray.(i) <- ${3:minimum} + Random.int (${4:maximum} - ${3:minimum})",
+      "\tdone;",
+      "\tarray",
+      "$0"
+    ],
     "description": "Code snippet for creating an array of random integers"
   },
-  
   "swap array": {
-    "body": ["let ${1:swap} ${2:array} ${3:i} ${4:j} =", "\tlet tmp = ${2:array}.(${3:i}) in", "\t${2:array}.(${3}) <- ${2:array}.(${4:j});", "\t${2:array}.(${4:j}) <- tmp;", "\t${2:array}", "$0"],
+    "body": [
+      "let ${1:swap} ${2:array} ${3:i} ${4:j} =",
+      "\tlet tmp = ${2:array}.(${3:i}) in",
+      "\t${2:array}.(${3}) <- ${2:array}.(${4:j});",
+      "\t${2:array}.(${4:j}) <- tmp;",
+      "\t${2:array}",
+      "$0"
+    ],
     "description": "Code snippet for swapping two elements in an array"
   },
+  "int list pretty printer": {
+    "body": [
+      "let ${1:pp_int_list} outchan l =",
+      "\tlet rec print_list = function",
+      "\t\t| [] -> ()",
+      "\t\t| [ e ] -> Printf.fprintf outchan \"%d\" e",
+      "\t\t| e :: q -> Printf.fprintf outchan \"%d; \" e; print_list q",
+      "\tin",
+      "\tPrintf.fprintf outchan \"[\";",
+      "\tprint_list l;",
+      "\tPrintf.fprintf outchan \"]\"",
+      "$0"
+    ],
+    "description": "Code snippet for creating an int list pretty printer"
+  },
+  "int array pretty printer": {
+    "body": [
+      "let ${1:pp_int_array} outchan arr =",
+      "\tlet n = Array.length arr in",
+      "\tPrintf.fprintf outchan \"[|\";",
+      "\tfor i = 0 to n - 2 do",
+      "\t\tPrintf.fprintf outchan \"%d; \" arr.(i)",
+      "\tdone;",
+      "\tif n <> 0 then Printf.fprintf outchan \"%d\" arr.(n - 1);",
+      "\tPrintf.fprintf outchan \"|]\"",
+      "$0"
+    ],
+    "description": "Code snippet for creating an int array pretty printer"
+  }
 }
