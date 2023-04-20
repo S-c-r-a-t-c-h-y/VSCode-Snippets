@@ -1,8 +1,6 @@
 {
   "for loop": {
-    "prefix": [
-      "for"
-    ],
+    "prefix": ["for"],
     "body": [
       "for ${1:i} = ${2:0} ${3|to,downto|} ${4:count} do",
       "\t$5",
@@ -11,186 +9,126 @@
     ],
     "description": "Code snippet for for loop"
   },
+
   "while loop": {
-    "prefix": [
-      "while"
-    ],
-    "body": [
-      "while $1 do",
-      "\t$2",
-      "done",
-      "$0"
-    ],
+    "prefix": ["while"],
+    "body": ["while $1 do", "\t$2", "done", "$0"],
     "description": "Code snippet for while loop"
   },
+
   "if": {
-    "prefix": [
-      "if"
-    ],
-    "body": [
-      "if $1 then $0"
-    ],
+    "prefix": ["if"],
+    "body": ["if $1 then $0"],
     "description": "Code snippet for if then"
   },
+
   "if else": {
-    "prefix": [
-      "ifel"
-    ],
-    "body": [
-      "if $1 then $2",
-      "else $0"
-    ],
+    "prefix": ["ifel"],
+    "body": ["if $1 then $2", "else $0"],
     "description": "Code snippet for if then else"
   },
+
   "if else if": {
-    "prefix": [
-      "ifelif"
-    ],
-    "body": [
-      "if $1 then $2",
-      "else if $3 then $4",
-      "else $0"
-    ],
+    "prefix": ["ifelif"],
+    "body": ["if $1 then $2", "else if $3 then $4", "else $0"],
     "description": "Code snippet for if then else if then else"
   },
+
   "match": {
-    "prefix": [
-      "match"
-    ],
-    "body": [
-      "match ${1:expression} with",
-      "| ${2:_} -> $0"
-    ],
+    "prefix": ["match"],
+    "body": ["match ${1:expression} with", "| ${2:_} -> $0"],
     "description": "Code snippet for match with"
   },
+
   "match case": {
-    "prefix": [
-      "case",
-      "pat"
-    ],
-    "body": [
-      "| ${1:_} -> $0"
-    ],
+    "prefix": ["case", "pat"],
+    "body": ["| ${1:_} -> $0"],
     "description": "Code snippet for match cases"
   },
+
   "printf": {
-    "prefix": [
-      "printf"
-    ],
-    "body": [
-      "Printf.printf \"$1\" $0"
-    ],
+    "prefix": ["printf"],
+    "body": ["Printf.printf \"$1\" $0"],
     "description": "Code snippet for Printf.printf"
   },
+
   "fprintf": {
-    "prefix": [
-      "fprintf"
-    ],
-    "body": [
-      "Printf.fprintf ${1:stdout} \"$2\" $0"
-    ],
+    "prefix": ["fprintf"],
+    "body": ["Printf.fprintf ${1:stdout} \"$2\" $0"],
     "description": "Code snippet for Printf.fprintf"
   },
+
   "perf timing": {
-    "prefix": [
-      "time",
-      "perf"
-    ],
+    "prefix": ["time", "perf"],
     "body": [
       "let start_time = Sys.time () in ${1:$BLOCK_COMMENT_START code $BLOCK_COMMENT_END}; Printf.printf \"$1 %fs\\n\" (Sys.time () -. start_time)$0"
     ],
     "description": "Code snippet for perf timing"
   },
+
   "List.fold_left": {
-    "prefix": [
-      "lfold",
-      "lfoldleft"
-    ],
+    "prefix": ["lfold", "lfoldleft"],
     "body": [
       "List.fold_left (fun ${1:acc} ${2:x} -> $3) ${4:init} ${5:list} $0"
     ],
     "description": "Code snippet for List.fold_left"
   },
+
   "List.fold_right": {
-    "prefix": [
-      "lfoldright"
-    ],
+    "prefix": ["lfoldright"],
     "body": [
       "List.fold_right (fun ${1:x} ${2:acc} -> $3) ${4:list} ${5:init} $0"
     ],
     "description": "Code snippet for List.fold_right"
   },
+
   "Array.fold_left": {
-    "prefix": [
-      "afold",
-      "afoldleft"
-    ],
+    "prefix": ["afold", "afoldleft"],
     "body": [
       "Array.fold_left (fun ${1:acc} ${2:x} -> $3) ${4:init} ${5:array} $0"
     ],
     "description": "Code snippet for Array.fold_left"
   },
+
   "Array.fold_right": {
-    "prefix": [
-      "afoldright"
-    ],
+    "prefix": ["afoldright"],
     "body": [
       "Array.fold_right (fun ${1:x} ${2:acc} -> $3) ${4:array} ${5:init} $0"
     ],
     "description": "Code snippet for Array.fold_right"
   },
+
   "Hashtbl.fold": {
-    "prefix": [
-      "hfold"
-    ],
+    "prefix": ["hfold"],
     "body": [
       "Hashtbl.fold (fun ${1:key} ${2:value} ${3:acc} -> $4) ${5:hashtable} ${6:init} $0"
     ],
     "description": "Code snippet for Array.fold_left"
   },
+
   "try with": {
-    "prefix": [
-      "try",
-      "trywith"
-    ],
-    "body": [
-      "try",
-      "\t$1",
-      "with ${2:Exception} -> $3",
-      "$0"
-    ],
+    "prefix": ["try", "trywith"],
+    "body": ["try", "\t$1", "with ${2:Exception} -> $3", "$0"],
     "description": "Code snippet for try with"
   },
+
   "match list": {
-    "prefix": [
-      "matchl",
-      "lmatch"
-    ],
-    "body": [
-      "match ${1:list} with",
-      "| [] -> $2",
-      "| ${3:e} :: ${4:q} -> $0"
-    ],
+    "prefix": ["matchl", "lmatch"],
+    "body": ["match ${1:list} with", "| [] -> $2", "| ${3:e} :: ${4:q} -> $0"],
     "description": "Code snippet for match with lists"
   },
+
   "assign array": {
-    "prefix": [
-      "assarr"
-    ],
-    "body": [
-      "${1:array}.(${2:i}) <- ${3:value} $0"
-    ],
+    "prefix": ["assarr"],
+    "body": ["${1:array}.(${2:i}) <- ${3:value} $0"],
     "description": "Code snippet for assigning value to array"
   },
+
   "increment array": {
-    "prefix": [
-      "incrarr"
-    ],
-    "body": [
-      "${1:array}.(${2:i}) <- ${1:array}.(${2:i}) + ${3:value} $0"
-    ],
+    "body": ["${1:array}.(${2:i}) <- ${1:array}.(${2:i}) + ${3:value} $0"],
     "description": "Code snippet for incrementing value in an array"
   },
+
   "random array": {
     "body": [
       "let ${1:random_array} ${2:n} ?(${3:minimum} = 0) ${4:maximum} =",
@@ -203,6 +141,7 @@
     ],
     "description": "Code snippet for creating an array of random integers"
   },
+
   "swap array": {
     "body": [
       "let ${1:swap} ${2:array} ${3:i} ${4:j} =",
@@ -214,6 +153,7 @@
     ],
     "description": "Code snippet for swapping two elements in an array"
   },
+
   "int list pretty printer": {
     "body": [
       "let ${1:pp_int_list} outchan l =",
@@ -229,6 +169,7 @@
     ],
     "description": "Code snippet for creating an int list pretty printer"
   },
+
   "int array pretty printer": {
     "body": [
       "let ${1:pp_int_array} outchan arr =",
@@ -242,5 +183,40 @@
       "$0"
     ],
     "description": "Code snippet for creating an int array pretty printer"
+  },
+
+  "matrix multiplication": {
+    "body": [
+      "let ${1:matrix_multiply} x y =",
+      "\tlet x0 = Array.length x and y0 = Array.length y in",
+      "\tlet y1 = if y0 = 0 then 0 else Array.length y.(0) in",
+      "\tlet z = Array.make_matrix x0 y1 0${2| ,. |}in",
+      "\tfor i = 0 to x0 - 1 do",
+      "\t\tfor j = 0 to y1 - 1 do",
+      "\t\t\tfor k = 0 to y0 - 1 do",
+      "\t\t\t\tz.(i).(j) <- z.(i).(j) +$2(x.(i).(k) *$2y.(k).(j))",
+      "\t\t\tdone",
+      "\t\tdone",
+      "\tdone;",
+      "\tz",
+      "$0"
+    ],
+    "description": "Code snippet for multiplying matrix together"
+  },
+
+  "matrix transposition": {
+    "body": [
+      "let ${1:transpose} mat =",
+      "\tlet w, h = (Array.length mat.(0), Array.length mat) in",
+      "\tlet t = Array.make_matrix w h mat.(0).(0) in",
+      "\tfor i = 0 to h - 1 do",
+      "\t\tfor j = 0 to w - 1 do",
+      "\t\t\tt.(j).(i) <- mat.(i).(j)",
+      "\t\tdone",
+      "\tdone;",
+      "\tt",
+      "$0"
+    ],
+    "description": "Code snippet for transposing a matrix"
   }
 }
